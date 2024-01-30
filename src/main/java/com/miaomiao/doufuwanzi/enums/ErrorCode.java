@@ -6,15 +6,27 @@ public enum ErrorCode {
      * 其他错误的尽量按照前三位为httpStatus，后两位为自定义的方式
      */
     SUCCESS(0, "成功"),
+    BAD_REQUEST(400, "请求错误"),
+    UNAUTHORIZED(401, "未授权"),
+    FORBIDDEN(403, "禁止访问"),
+    NOT_FOUND(404, "未找到资源"),
+    METHOD_NOT_ALLOWED(405, "请求方法不允许"),
+    INTERNAL_SERVER_ERROR(500, "服务器内部错误"),
+    BAD_GATEWAY(502, "网关错误"),
+    SERVICE_UNAVAILABLE(503, "服务不可用"),
+    GATEWAY_TIMEOUT(504, "网关超时"),
 
-    SYSTEM_ERROR(500, "系统错误"),
+    //  参数错误码示例
+    PARAMETER_ERROR(40000, "参数错误"),
+    DATA_INTEGRITY_VIOLATION(40000, "数据完整性验证失败"),
 
-    // 自定义错误码示例
-    INVALID_PARAMETER(40001, "无效参数"),
-    PERMISSION_DENIED(40301, "权限不足"),
-    NOT_FOUND(40401, "资源未找到"),
-    DUPLICATE_ENTRY(40901, "重复记录"),
-    INTERNAL_SERVER_ERROR(50001, "内部服务器错误"),
+    // 业务错误码示例
+    USER_NOT_FOUND(40001, "用户未找到"),
+    USER_ALREADY_EXIST(40002, "用户已存在"),
+    USER_PASSWORD_ERROR(40003, "密码错误"),
+    USER_LOGIN_FAILED(40004, "登录失败"),
+    USER_NOT_LOGIN(40005, "用户未登录"),
+    USER_NOT_ACTIVE(40006, "用户未激活"),
 
     ;
 

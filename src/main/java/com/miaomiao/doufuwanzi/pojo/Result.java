@@ -4,26 +4,29 @@ import lombok.Data;
 
 @Data
 public class Result<T> {
+    private static final int SUCCESS_CODE = 0; // 定义成功码
     private boolean success;
     private String message;
+    private int code;
     private T data;
 
-    public Result(boolean success, String message, T data) {
+    public Result(boolean success, String message, int code, T data) {
         this.success = success;
         this.message = message;
+        this.code = code;
         this.data = data;
     }
 
     public static Result<String> success() {
-        return new Result<>(true, null, "success");
+        return new Result<>(true, null, SUCCESS_CODE, "success");
     }
 
     public static <T> Result<T> success(T data) {
-        return new Result<>(true, null, data);
+        return new Result<>(true, null, SUCCESS_CODE, data);
     }
 
-    public static <T> Result<T> fail(String message) {
-        return new Result<>(false, message, null);
+    public static <T> Result<T> fail(String message, int code) {
+        return new Result<>(false, message, code, null);
     }
 
     public boolean isSuccess() {
@@ -32,6 +35,10 @@ public class Result<T> {
 
     public String getMessage() {
         return message;
+    }
+
+    public int getCode() {
+        return code;
     }
 
     public T getData() {
@@ -43,6 +50,7 @@ public class Result<T> {
         return "Result{" +
                 "success=" + success +
                 ", message='" + message + '\'' +
+                ", code='" + code + '\'' +
                 ", data=" + data +
                 '}';
     }

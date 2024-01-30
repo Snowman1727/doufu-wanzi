@@ -1,6 +1,7 @@
 package com.miaomiao.doufuwanzi.utils;
 
 import lombok.Data;
+
 import java.util.Random;
 import java.util.UUID;
 
