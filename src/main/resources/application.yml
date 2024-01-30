@@ -26,3 +26,16 @@ javamelody:
     storage-directory: /tmp/javamelody
     # 更改默认的“ / monitoring”路径：
     monitoring-path: /doufu-wanzi/console/admin
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.94.103.254:3306/doufu?useUnicode=true&useSSL=false&characterEncoding=utf8
+    username: user
+    password: 123456
+  data:
+    redis:
+      host: 47.94.103.254
+      port: 6379
+      timeout: 10000ms
