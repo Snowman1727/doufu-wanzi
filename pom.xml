@@ -61,7 +61,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.3.1</version>
+            <version>3.5.3</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -96,6 +96,14 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
+        </dependency>
+
+        <!-- 引入Servlet API的jar包 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope> <!-- 对于部署在Servlet容器中的应用，此依赖应设为provided -->
         </dependency>
 
     </dependencies>

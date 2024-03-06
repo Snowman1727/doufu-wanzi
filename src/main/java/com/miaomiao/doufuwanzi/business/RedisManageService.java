@@ -11,6 +11,14 @@ public interface RedisManageService {
     void cacheLoginStatus(String key, String value);
 
     /**
+     * 获取登录状态
+     *
+     * @param key 键名
+     * @return 键值
+     */
+    String getLoginStatus(String key);
+
+    /**
      * 验证登录状态
      *
      * @param key   键名
