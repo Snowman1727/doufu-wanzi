@@ -65,6 +65,19 @@ public class UserManageServiceImpl implements UserManageService {
     }
 
     @Override
+    public UserVo query(String token) {
+        log.info("查询用户信息");
+        UserVo vo = new UserVo();
+        String phone = redisManageService.getLoginStatus(token);
+        if (phone == null) {
+            throw new BusinessException(ErrorCode.USER_NOT_LOGIN);
+        }
+        User user = userService.getUserByPhone(phone);
+        BeanUtils.copyProperties(user, vo);
+        return vo;
+    }
+
+    @Override
     public void edit(String token, UserInfoDto dto) {
         log.info("编辑用户信息");
         UserInfo userInfo = new UserInfo();

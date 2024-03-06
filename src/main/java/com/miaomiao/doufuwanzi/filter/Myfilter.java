@@ -25,6 +25,8 @@ public class Myfilter implements Filter {
         // 初始化逻辑
         ALLOWED_PATH_LIST.add("/file/tmp/download");
         ALLOWED_PATH_LIST.add("/user/register");
+        ALLOWED_PATH_LIST.add("/user/login");
+        ALLOWED_PATH_LIST.add("/user/info");
     }
 
     @Override

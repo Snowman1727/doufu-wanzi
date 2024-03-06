@@ -3,14 +3,12 @@ package com.miaomiao.doufuwanzi.controller;
 import com.miaomiao.doufuwanzi.business.UserManageService;
 import com.miaomiao.doufuwanzi.pojo.Result;
 import com.miaomiao.doufuwanzi.pojo.dto.UserInfoDto;
+import com.miaomiao.doufuwanzi.pojo.dto.UserLoginDto;
 import com.miaomiao.doufuwanzi.pojo.dto.UserRegisterDto;
 import com.miaomiao.doufuwanzi.pojo.vo.UserVo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,6 +29,30 @@ public class UserController {
     @PostMapping("/register")
     public Result<UserVo> register(@RequestBody UserRegisterDto dto) {
         return Result.success(userManageService.register(dto));
+    }
+
+    /**
+     * 用户登录
+     *
+     * @param dto 用户登录信息
+     * @return 登录结果，成功返回登录成功的用户信息
+     */
+    @PostMapping("/login")
+    public Result<String> login(@RequestBody UserLoginDto dto) {
+        userManageService.login(dto);
+        return Result.success();
+    }
+
+    /**
+     * 用户信息查询
+     *
+     * @param request HttpServletRequest对象，用于获取请求头信息
+     * @return 查询结果，成功返回查询到的用户信息
+     */
+    @GetMapping("/info")
+    public Result<UserVo> info(HttpServletRequest request) {
+        String token = request.getHeader("token");
+        return Result.success(userManageService.query(token));
     }
 
     /**

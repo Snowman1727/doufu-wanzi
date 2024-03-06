@@ -24,6 +24,14 @@ public interface UserManageService {
     void login(UserLoginDto dto);
 
     /**
+     * 用户信息查询接口。
+     *
+     * @param token 用户登录状态标识，用于验证用户身份。
+     * @return 返回用户信息Vo对象。
+     */
+    UserVo query(String token);
+
+    /**
      * 用户信息编辑接口。
      *
      * @param token 用户登录状态标识，用于验证用户身份。

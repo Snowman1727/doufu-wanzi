@@ -1,6 +1,9 @@
 package com.miaomiao.doufuwanzi.pojo.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 public class UserInfoDto {
@@ -13,5 +16,6 @@ public class UserInfoDto {
 
     private String photoUrl;
 
-    private String birthday;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date birthday;
 }

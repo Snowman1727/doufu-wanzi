@@ -31,7 +31,7 @@ public class RedisManageServiceImpl implements RedisManageService {
     @Override
     public void verifyLoginStatus(String key, String value) {
         String phone = redisService.get(RedisPrefix.LOGIN_TOKEN + key);
-        if (!phone.equals(value)) {
+        if (phone == null||!phone.equals(value)) {
             throw new BusinessException("token失效,token=" + RedisPrefix.LOGIN_TOKEN + key);
         }
     }
