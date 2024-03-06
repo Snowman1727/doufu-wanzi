@@ -9,10 +9,10 @@ import java.util.Date;
 
 /**
  * 
- * @TableName user
+ * @TableName user_info
  */
-@TableName(value ="user")
-public class User implements Serializable {
+@TableName(value ="user_info")
+public class UserInfo implements Serializable {
     /**
      * 
      */
@@ -22,17 +22,27 @@ public class User implements Serializable {
     /**
      * 
      */
-    private String phone;
+    private Integer userId;
 
     /**
      * 
      */
-    private String name;
+    private String description;
 
     /**
      * 
      */
-    private String password;
+    private String email;
+
+    /**
+     * 
+     */
+    private String photoUrl;
+
+    /**
+     * 
+     */
+    private Date birthday;
 
     /**
      * 
@@ -64,43 +74,71 @@ public class User implements Serializable {
     /**
      * 
      */
-    public String getPhone() {
-        return phone;
+    public Integer getUserId() {
+        return userId;
     }
 
     /**
      * 
      */
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
      * 
      */
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
     /**
      * 
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**
      * 
      */
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
     /**
      * 
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * 
+     */
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    /**
+     * 
+     */
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    /**
+     * 
+     */
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    /**
+     * 
+     */
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     /**
@@ -142,11 +180,13 @@ public class User implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        User other = (User) that;
+        UserInfo other = (UserInfo) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
+            && (this.getPhotoUrl() == null ? other.getPhotoUrl() == null : this.getPhotoUrl().equals(other.getPhotoUrl()))
+            && (this.getBirthday() == null ? other.getBirthday() == null : this.getBirthday().equals(other.getBirthday()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -156,9 +196,11 @@ public class User implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
+        result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
+        result = prime * result + ((getPhotoUrl() == null) ? 0 : getPhotoUrl().hashCode());
+        result = prime * result + ((getBirthday() == null) ? 0 : getBirthday().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -171,9 +213,11 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", phone=").append(phone);
-        sb.append(", name=").append(name);
-        sb.append(", password=").append(password);
+        sb.append(", userId=").append(userId);
+        sb.append(", description=").append(description);
+        sb.append(", email=").append(email);
+        sb.append(", photoUrl=").append(photoUrl);
+        sb.append(", birthday=").append(birthday);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

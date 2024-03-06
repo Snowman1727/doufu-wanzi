@@ -10,6 +10,8 @@ mybatis-plus:
 
 server:
   port: 8080
+  servlet:
+    context-path: /application
 
 javamelody:
   # JavaMelody的初始化参数（可选）
@@ -31,9 +33,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.94.103.254:3306/doufu?useUnicode=true&useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://39.106.21.251:3306/wanzi?useUnicode=true&useSSL=false&characterEncoding=utf8
     druid:
-      username: user
+      username: doufu
       password: 123456
       initial-size: 10
       max-active: 100
@@ -44,6 +46,7 @@ spring:
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
   redis:
-    host: 47.94.103.254
+    host: 39.106.21.251
     port: 6379
+    password: 123456
     timeout: 10000ms

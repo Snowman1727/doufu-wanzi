@@ -3,6 +3,7 @@ package com.miaomiao.doufuwanzi.controller;
 import com.miaomiao.doufuwanzi.business.UserManageService;
 import com.miaomiao.doufuwanzi.pojo.Result;
 import com.miaomiao.doufuwanzi.pojo.dto.UserRegisterDto;
+import com.miaomiao.doufuwanzi.pojo.vo.UserVo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,9 +20,8 @@ public class UserController {
     private final UserManageService userManageService;
 
     @PostMapping("/register")
-    public Result<String> register(@RequestBody UserRegisterDto dto) {
+    public Result<UserVo> register(@RequestBody UserRegisterDto dto) {
         log.info("register");
-        userManageService.register(dto);
-        return Result.success();
+        return Result.success(userManageService.register(dto));
     }
 }
