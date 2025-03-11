@@ -35,28 +35,7 @@ public class UserManageServiceImpl implements UserManageService {
     @Transactional(rollbackFor = Exception.class)
     public UserVo register(UserRegisterDto dto) {
         log.info("注册用户");
-        if (userService.getUserByPhone(dto.getPhone()) != null) {
-            throw new BusinessException(ErrorCode.USER_ALREADY_EXIST);
-        }
-        User user = new User();
-        BeanUtils.copyProperties(dto, user);
-        user.setCreateTime(new Date());
-        user.setUpdateTime(new Date());
-        userService.save(user);
-
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserId(user.getId());
-        userInfo.setCreateTime(new Date());
-        userInfo.setUpdateTime(new Date());
-        userInfoService.save(userInfo);
-
-        String token = UUIDUtils.generateUUID();
-        redisManageService.cacheLoginStatus(token, dto.getPhone());
-
-        UserVo vo = new UserVo();
-        BeanUtils.copyProperties(user, vo);
-        vo.setToken(token);
-        return vo;
+        return null;
     }
 
     @Override
@@ -67,28 +46,12 @@ public class UserManageServiceImpl implements UserManageService {
     @Override
     public UserVo query(String token) {
         log.info("查询用户信息");
-        UserVo vo = new UserVo();
-        String phone = redisManageService.getLoginStatus(token);
-        if (phone == null) {
-            throw new BusinessException(ErrorCode.USER_NOT_LOGIN);
-        }
-        User user = userService.getUserByPhone(phone);
-        BeanUtils.copyProperties(user, vo);
-        return vo;
+       return null;
     }
 
     @Override
     public void edit(String token, UserInfoDto dto) {
         log.info("编辑用户信息");
-        UserInfo userInfo = new UserInfo();
-        BeanUtils.copyProperties(dto, userInfo);
-        userInfo.setUpdateTime(new Date());
-        String phone = redisManageService.getLoginStatus(token);
-        Integer userId = userService.getUserByPhone(phone).getId();
-        if (!userInfo.getUserId().equals(userId) || userInfo.getUserId() == null) {
-            throw new BusinessException(ErrorCode.USER_NOT_FOUND);
-        }
-        userInfoService.updateByUserId(userInfo);
     }
 
     @Override

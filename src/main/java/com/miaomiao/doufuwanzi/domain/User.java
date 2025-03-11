@@ -1,45 +1,46 @@
 package com.miaomiao.doufuwanzi.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
 import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * 
  * @TableName user
  */
-@TableName(value = "user")
+@TableName(value ="user")
 public class User implements Serializable {
     /**
-     *
+     * 
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**
-     *
+     * 
      */
     private String phone;
 
     /**
-     *
+     * 
      */
     private String name;
 
     /**
-     *
+     * 
      */
     private String password;
 
     /**
-     *
+     * 
      */
     private Date createTime;
 
     /**
-     *
+     * 
      */
     private Date updateTime;
 
@@ -47,84 +48,84 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     *
+     * 
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     *
+     * 
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     *
+     * 
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     *
+     * 
      */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
     /**
-     *
+     * 
      */
     public String getName() {
         return name;
     }
 
     /**
-     *
+     * 
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     *
+     * 
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     *
+     * 
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     *
+     * 
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     *
+     * 
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     *
+     * 
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     *
+     * 
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
@@ -143,11 +144,11 @@ public class User implements Serializable {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
+            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override
